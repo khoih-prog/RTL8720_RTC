@@ -9,6 +9,15 @@
 ---
 ---
 
+## Table of Contents
+
+* [Changelog](#changelog)
+  * [Releases v1.0.1](#releases-v101)
+  * [Initial Releases v1.0.0](#initial-releases-v100)
+
+---
+---
+
 ## Changelog
 
 ### Releases v1.0.1
