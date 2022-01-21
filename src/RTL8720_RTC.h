@@ -4,11 +4,12 @@
 
   Built by Khoi Hoang https://github.com/khoih-prog/RTL8720_RTC
   Licensed under MIT license
-  Version: 1.0.0
+  Version: 1.0.1
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.0.0  K Hoang      10/08/2021 Initial release to support RTL8720-based boards using internal RTC with RTL8720DN WiFi
+  1.0.1  K Hoang      20/01/2022 Update dependency
 *****************************************************************************************************************************/
 
 #pragma once
@@ -30,7 +31,13 @@
   #error This code is designed to run on RTL8720-based platform! Please check your Tools->Board setting.
 #endif
 
-#define RTL8720_RTC_VERSION      "RTL8720_RTC v1.0.0"
+#define RTL8720_RTC_VERSION             "RTL8720_RTC v1.0.1"
+
+#define RTL8720_RTC_VERSION_MAJOR       1
+#define RTL8720_RTC_VERSION_MINOR       0
+#define RTL8720_RTC_VERSION_PATCH       1
+
+#define RTL8720_RTC_VERSION_INT         1000001
 
 #include <Arduino.h>
 
@@ -41,8 +48,8 @@
   extern "C" {
 #endif
 
-  /*static*/ void rtc_restore_timeinfo(void);
-  void rtc_backup_timeinfo(void);
+  /*static*/ void rtc_restore_timeinfo();
+  void rtc_backup_timeinfo();
   
 #ifdef __cplusplus
   }

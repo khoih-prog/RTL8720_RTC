@@ -16,8 +16,7 @@
   * [Why using ISR-based Alarm is better](#why-using-isr-based-alarm-is-better)
   * [Currently supported Boards](#currently-supported-boards)
   * [Important Notes about ISR](#important-notes-about-isr)
-* [Changelog](#changelog)
-  * [Initial Releases v1.0.0](#initial-releases-v100)
+* [Changelog](changelog.md)
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
   * [Use Arduino Library Manager](#use-arduino-library-manager)
@@ -39,7 +38,6 @@
 * [Debug Terminal Output Samples](#debug-terminal-output-samples)
   * [1. RTL8720_RTC_Time_WiFi on RTL8720DN_BW16](#1-rtl8720_rtc_time_wifi-on-rtl8720dn_bw16)
 * [Troubleshooting](#troubleshooting)
-* [Releases](#releases)
 * [Issues](#issues)
 * [TO DO](#to-do)
 * [DONE](#done)
@@ -97,22 +95,12 @@ The catch is **your function is now part of an ISR (Interrupt Service Routine), 
 ---
 ---
 
-## Changelog
-
-### Initial Releases v1.0.0
-
-1. Initial coding to support RTL8720-based boards such as **Realtek RTL8720DN, RTL8722DM and RTL8722CSM** using [`Arduino AmebaD core`](https://github.com/ambiot/ambd_arduino)
-
-
----
----
-
 ## Prerequisites
 
-1. [`Arduino IDE 1.8.15+` for Arduino](https://www.arduino.cc/en/Main/Software)
-2. [`Arduino AmebaD core 3.0.8+`](https://github.com/ambiot/ambd_arduino) for Realtek RTL8720DN, RTL8722DM and RTL8722CSM. [![GitHub release](https://img.shields.io/github/release/ambiot/ambd_arduino.svg)](https://github.com/ambiot/ambd_arduino/releases/latest)
-3. [`Timezone_Generic library v1.7.0+`](https://github.com/khoih-prog/Timezone_Generic) to use examples using Timezone. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/Timezone_Generic.svg?)](https://www.ardu-badge.com/Timezone_Generic)
-4. [`WiFiWebServer_RTL8720 library v1.0.1+`](https://github.com/khoih-prog/WiFiWebServer_RTL8720) WiFi to access NTP server. To install. check [![arduino-library-badge](https://www.ardu-badge.com/badge/WiFiWebServer_RTL8720.svg?)](https://www.ardu-badge.com/WiFiWebServer_RTL8720).
+1. [`Arduino IDE 1.8.19+` for Arduino](https://github.com/arduino/Arduino). [![GitHub release](https://img.shields.io/github/release/arduino/Arduino.svg)](https://github.com/arduino/Arduino/releases/latest)
+2. [`Arduino AmebaD core 3.1.1+`](https://github.com/ambiot/ambd_arduino) for Realtek RTL8720DN, RTL8722DM and RTL8722CSM. [![GitHub release](https://img.shields.io/github/release/ambiot/ambd_arduino.svg)](https://github.com/ambiot/ambd_arduino/releases/latest)
+3. [`Timezone_Generic library v1.9.0+`](https://github.com/khoih-prog/Timezone_Generic) to use examples using Timezone. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/Timezone_Generic.svg?)](https://www.ardu-badge.com/Timezone_Generic)
+4. [`WiFiWebServer_RTL8720 library v1.1.1+`](https://github.com/khoih-prog/WiFiWebServer_RTL8720) WiFi to access NTP server. To install. check [![arduino-library-badge](https://www.ardu-badge.com/badge/WiFiWebServer_RTL8720.svg?)](https://www.ardu-badge.com/WiFiWebServer_RTL8720).
 
 ---
 ---
@@ -148,11 +136,11 @@ Another way to install is to:
 
 #### 1. For RTL8720DN boards using AmebaD core
  
- To avoid compile error relating to PROGMEM, you have to copy the file [Realtek AmebaD core pgmspace.h](Packages_Patches/realtek/hardware/AmebaD/3.0.8/cores/arduino/avr/pgmspace.h) into Realtek AmebaD directory (~/.arduino15/packages/realtek/hardware/AmebaD/3.0.8/cores/arduino/avr/pgmspace.h). 
+ To avoid compile error relating to PROGMEM, you have to copy the file [Realtek AmebaD core pgmspace.h](Packages_Patches/realtek/hardware/AmebaD/3.1.1/cores/arduino/avr/pgmspace.h) into Realtek AmebaD directory (~/.arduino15/packages/realtek/hardware/AmebaD/3.1.1/cores/arduino/avr/pgmspace.h). 
 
-Supposing the Realtek AmebaD core version is 3.0.8. This file must be copied into the directory:
+Supposing the Realtek AmebaD core version is 3.1.1. This file must be copied into the directory:
 
-- `~/.arduino15/packages/realtek/hardware/AmebaD/3.0.8/cores/arduino/avr/pgmspace.h`
+- `~/.arduino15/packages/realtek/hardware/AmebaD/3.1.1/cores/arduino/avr/pgmspace.h`
 
 Whenever a new version is installed, remember to copy this file into the new version directory. For example, new version is x.yy.zz
 This file must be copied into the directory:
@@ -260,6 +248,7 @@ class DateTime
 
 #include "defines.h"
 
+// To be included only in main(), .ino with setup() to avoid `Multiple Definitions` Linker Error
 #include <Timezone_Generic.h>             // https://github.com/khoih-prog/Timezone_Generic
 
 //////////////////////////////////////////
@@ -533,53 +522,19 @@ The following is the sample terminal output when running example [RTL8720_RTC_Ti
 
 ```
 Start RTL8720_RTC_Time_WiFi on RTL8720DN_BW16
-RTL8720_RTC v1.0.0
-Timezone_Generic v1.7.0
+RTL8720_RTC v1.0.1
+Timezone_Generic v1.9.0
 Current Firmware Version = 1.0.0
 Attempting to connect to SSID: HueNet_5G
 Attempting to connect to SSID: HueNet_5G
 TZ_NTP_Clock_RTL8720DN started @ IP address: 192.168.2.111
 Packet received
-Seconds since Jan 1 1900 = 3837634277
-Unix time = 1628645477
-The UTC time is 1:31:17
+Seconds since Jan 1 1900 = 3851712462
+Unix time = 1642723662
+The UTC time is 0:07:42
 ============================
-01:31:17 Wed 11 Aug 2021 UTC
-21:31:17 Tue 10 Aug 2021 EDT
-============================
-01:32:18 Wed 11 Aug 2021 UTC
-21:32:18 Tue 10 Aug 2021 EDT
-============================
-01:33:19 Wed 11 Aug 2021 UTC
-21:33:19 Tue 10 Aug 2021 EDT
-============================
-01:34:20 Wed 11 Aug 2021 UTC
-21:34:20 Tue 10 Aug 2021 EDT
-============================
-01:35:21 Wed 11 Aug 2021 UTC
-21:35:21 Tue 10 Aug 2021 EDT
-============================
-01:36:22 Wed 11 Aug 2021 UTC
-21:36:22 Tue 10 Aug 2021 EDT
-============================
-01:37:23 Wed 11 Aug 2021 UTC
-21:37:23 Tue 10 Aug 2021 EDT
-============================
-01:38:24 Wed 11 Aug 2021 UTC
-21:38:24 Tue 10 Aug 2021 EDT
-============================
-01:39:25 Wed 11 Aug 2021 UTC
-21:39:25 Tue 10 Aug 2021 EDT
-============================
-01:40:26 Wed 11 Aug 2021 UTC
-21:40:26 Tue 10 Aug 2021 EDT
-============================
-01:41:27 Wed 11 Aug 2021 UTC
-21:41:27 Tue 10 Aug 2021 EDT
-============================
-01:42:28 Wed 11 Aug 2021 UTC
-21:42:28 Tue 10 Aug 2021 EDT
-============================
+00:07:43 Fri 21 Jan 2022 UTC
+19:07:43 Thu 20 Jan 2022 EST
 ```
 
 ---
@@ -591,15 +546,6 @@ If you get compilation errors, more often than not, you may need to install a ne
 
 Sometimes, the library will only work if you update the board core to the latest version because I am using newly added functions.
 
-
----
----
-
-## Releases
-
-### Initial Releases v1.0.0
-
-1. Initial coding to support RTL8720-based boards such as **Realtek RTL8720DN, RTL8722DM and RTL8722CSM** using [`Arduino AmebaD core`](https://github.com/ambiot/ambd_arduino)
 
 ---
 ---

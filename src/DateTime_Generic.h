@@ -5,11 +5,12 @@
 
   Built by Khoi Hoang https://github.com/khoih-prog/RTL8720_RTC
   Licensed under MIT license
-  Version: 1.0.0
+  Version: 1.0.1
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.0.0  K Hoang      10/08/2021 Initial release to support RTL8720-based boards using internal RTC with RTL8720DN WiFi
+  1.0.1  K Hoang      20/01/2022 Update dependency
  *****************************************************************************************************************************/
  
 #pragma once
