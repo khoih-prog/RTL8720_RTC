@@ -12,6 +12,7 @@
 ## Table of Contents
 
 * [Changelog](#changelog)
+  * [Releases v1.0.2](#releases-v102)
   * [Releases v1.0.1](#releases-v101)
   * [Initial Releases v1.0.0](#initial-releases-v100)
 
@@ -20,11 +21,16 @@
 
 ## Changelog
 
+### Releases v1.0.2
+
+1. Update dependency for PlatformIO
+2. Update `Packages_Patches`
+
 ### Releases v1.0.1
 
 1. Update dependency on [Timezone_Generic Library](https://github.com/khoih-prog/Timezone_Generic)
 2. Update examples
-2. Update `Packages_Patches`
+3. Update `Packages_Patches`
 
 ### Initial Releases v1.0.0
 

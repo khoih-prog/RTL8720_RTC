@@ -1,6 +1,6 @@
 {
   "name": "RTL8720_RTC",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": "timing, device, rtc, control, timer, interrupt, alarm, utc, ntp, isr, isr-based, hardware-timer, mission-critical, accuracy, precise, non-blocking, AmebaD, RTL8720DN, RTL8722DM, RTL8722CSM",
   "description": "This library enables you to use RTC from RTL8720-based boards such as RTL8720DN, RTL8722DM, RTL8722CSM. This RTL8720-based RTC, using Interrupt, has no battery backup. Time will be lost when powered down. To need NTP-client to update RTC every start-up.",
   "authors":
@@ -25,7 +25,7 @@
     {
       "owner": "khoih-prog",
       "name": "Timezone_Generic",
-      "version": ">=1.9.0",
+      "version": ">=1.10.0",
       "platforms": ["*"]
     }
   ],
